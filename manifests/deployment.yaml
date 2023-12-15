@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reduxapp1
+  labels:
+    app: reduxapp1
+  namespace: namespace-workflow-1702669024063
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reduxapp1
+  template:
+    metadata:
+      labels:
+        app: reduxapp1
+    spec:
+      containers:
+        - name: reduxapp1
+          image: acrworkflow1702669024063.azurecr.io/image-workflow-1702669024063:latest
+          ports:
+            - containerPort: 8080
